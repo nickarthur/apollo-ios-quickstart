@@ -1,0 +1,3 @@
+[submodule "apollo-ios"]
+	path = apollo-ios
+	url = https://github.com/apollostack/apollo-ios

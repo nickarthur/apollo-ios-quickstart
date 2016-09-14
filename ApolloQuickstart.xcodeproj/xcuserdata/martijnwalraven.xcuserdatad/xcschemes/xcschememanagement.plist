@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>ApolloQuickstartAPI.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>9F1003CE1D885506009411A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1003D61D885506009411A3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1841911D884B520093FE83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1841A51D884B520093FE83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F1841B01D884B520093FE83</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
