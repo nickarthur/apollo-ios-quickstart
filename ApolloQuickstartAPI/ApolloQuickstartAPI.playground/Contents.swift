@@ -4,12 +4,17 @@ import ApolloQuickstartAPI
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-let client = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
+let configuration = URLSessionConfiguration.default
+// configuration.httpAdditionalHeaders = ["Authorization": "Bearer <token>"]
+
+let serverURL = URL(string: "http://localhost:8080/graphql")!
+
+let client = ApolloClient(networkTransport: HTTPNetworkTransport(url: serverURL, configuration: configuration))
 
 client.fetch(query: HeroAndFriendsNamesQuery(episode: .jedi)) { (result, error) in
   defer { PlaygroundPage.current.finishExecution() }
   
-  if let error = error { NSLog("Error while fetching query: \(error)");  return }
+  if let error = error { NSLog("Error while fetching query: \(error.localizedDescription)");  return }
   guard let result = result else { NSLog("No query result");  return }
   
   if let errors = result.errors {
@@ -19,7 +24,6 @@ client.fetch(query: HeroAndFriendsNamesQuery(episode: .jedi)) { (result, error) 
   guard let data = result.data else { NSLog("No query result data");  return }
   
   data.hero?.name
-  
-  let friendsNames = data.hero?.friends?.flatMap { $0?.name }.joined(separator: ", ")
-  friendsNames
+
+  data.hero?.friends?.flatMap { $0?.name }
 }
