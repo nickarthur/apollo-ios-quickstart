@@ -32,3 +32,5 @@ To download a GraphQL schema by sending an introspection query to a server:
 ```sh
 apollo-codegen download-schema http://localhost:8080/graphql --output ApolloQuickstartAPI/Definitions/schema.json
 ```
+
+You can use the `header` option to add additional HTTP headers to the request. For example, to include an authentication token, use `--header "Authorization: Bearer <token>"`.
