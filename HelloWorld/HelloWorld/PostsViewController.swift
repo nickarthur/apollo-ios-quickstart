@@ -28,6 +28,10 @@ class PostsViewController: UITableViewController {
     super.viewDidLoad()
     
     refreshControl?.addTarget(self, action: #selector(PostsViewController.refresh), for: .valueChanged)
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
     
     loadData()
   }
