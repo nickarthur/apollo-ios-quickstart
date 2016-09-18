@@ -21,7 +21,7 @@
 import UIKit
 import Apollo
 
-let client = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
+let client = ApolloClient(url: URL(string: "http://192.168.0.13:8080/graphql")!)
 
 class PostsViewController: UITableViewController {
   var posts: [AllPostsQuery.Data.Posts] = []
@@ -29,7 +29,23 @@ class PostsViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    refreshControl?.addTarget(self, action: #selector(PostsViewController.refresh), for: .valueChanged)
+    
+    loadData()
+  }
+  
+  // MARK: Data loading
+  
+  func refresh() {
+    loadData()
+  }
+  
+  func loadData() {
+    refreshControl?.beginRefreshing()
+    
     client.fetch(query: AllPostsQuery()) { (result, error) in
+      self.refreshControl?.endRefreshing()
+      
       if let error = error { NSLog("Error while fetching query: \(error.localizedDescription)");  return }
       guard let result = result else { NSLog("No query result");  return }
       
@@ -58,13 +74,15 @@ class PostsViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
     let post = posts[indexPath.row]
     cell.textLabel?.text = post.title
     cell.detailTextLabel?.text = post.author?.fullName
     return cell
   }
 }
+
+// We can extend the generated types to add convenience properties and methods
 
 extension AllPostsQuery.Data.Posts.Author {
   var fullName: String {

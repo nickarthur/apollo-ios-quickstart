@@ -12,6 +12,7 @@
 		9F167DD71D8EA3D600919F36 /* HeroAndFriends.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */; };
 		9F167DD91D8EA3D600919F36 /* HeroName.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD51D8EA3D600919F36 /* HeroName.graphql */; };
 		9F167DDA1D8EA3D600919F36 /* TwoHeroes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */; };
+		9FAACC091D8EBBD6007F6B58 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC081D8EBBD6007F6B58 /* Apollo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -36,6 +37,7 @@
 		9F167DD51D8EA3D600919F36 /* HeroName.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroName.graphql; sourceTree = "<group>"; };
 		9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoHeroes.graphql; sourceTree = "<group>"; };
 		9F167DDB1D8EA41A00919F36 /* StarWarsAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StarWarsAPI.playground; sourceTree = "<group>"; };
+		9FAACC081D8EBBD6007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ApolloQuickstart-azcunsnqjshvvtexxntekheriixm/Build/Products/Debug-iphonesimulator/Apollo.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FAACC091D8EBBD6007F6B58 /* Apollo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +58,7 @@
 				9F167DDB1D8EA41A00919F36 /* StarWarsAPI.playground */,
 				9F167DC61D8EA2CC00919F36 /* StarWarsAPI */,
 				9F167DC51D8EA2CC00919F36 /* Products */,
+				9FAACC071D8EBBD6007F6B58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +83,14 @@
 			path = StarWarsAPI;
 			sourceTree = "<group>";
 		};
+		9FAACC071D8EBBD6007F6B58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FAACC081D8EBBD6007F6B58 /* Apollo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -97,7 +109,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F167DCC1D8EA2CC00919F36 /* Build configuration list for PBXNativeTarget "StarWarsAPI" */;
 			buildPhases = (
-				9F167DCF1D8EA33E00919F36 /* Generate API Client */,
+				9F167DCF1D8EA33E00919F36 /* Generate Apollo API Client */,
 				9F167DBF1D8EA2CC00919F36 /* Sources */,
 				9F167DC01D8EA2CC00919F36 /* Frameworks */,
 				9F167DC11D8EA2CC00919F36 /* Headers */,
@@ -161,14 +173,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9F167DCF1D8EA33E00919F36 /* Generate API Client */ = {
+		9F167DCF1D8EA33E00919F36 /* Generate Apollo API Client */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate API Client";
+			name = "Generate Apollo API Client";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -348,6 +360,7 @@
 				9F167DCE1D8EA2CC00919F36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
