@@ -45,13 +45,13 @@ Try commenting out (GraphQL uses `#` for comments) a post's `title` and rebuild 
 
 The Star Wars API playground runs against [an example GraphQL server](https://github.com/jahewson/graphql-starwars) (see installation instructions there) using the Star Wars data bundled with Facebook's reference implementation, [GraphQL.js](https://github.com/graphql/graphql-js).
 
-Open `StarWarsAPI.playground` to experiment with using typed query results.
+Open `StarWarsAPI.playground` to experiment with using typed query results. If you want to run on a device, change `localhost` to your machine's local IP address in the playground.
 
-> You'll have to build `StarWarsAPI` framework  before running the playground, and whenever you make changes to `.graphql` files.
+> You'll have to build the `StarWarsAPI` framework before running the playground, and whenever you make changes to `.graphql` files.
 
-You can use GraphiQL to construct your own queries against the same API and put these in a new `.graphql` file.
+You can use GraphiQL to construct your own queries against the Star Wars API and put these in a new `.graphql` file.
 
-> You may want to use 'Edit / Paste and Preserve Formatting' to paste the query however, because for some reason Xcode will remove indentation when using a normal paste.
+> You may want to use 'Edit / Paste and Preserve Formatting' to paste the query in Xcode however, because for some reason Xcode will remove indentation when using a normal paste.
 
 ## Using your own schema
 
