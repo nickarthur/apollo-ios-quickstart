@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FF5E57E11CB20B5623A697D8A51544D5E81FBD84",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FF5E57E11CB20B5623A697D8A51544D5E81FBD84" : 9223372036854775807,
+    "11467B891B05E74285D0FDA7F262E859A9337C82" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "46B70A99-F8D4-4E1D-8136-456EDB0D6D5C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FF5E57E11CB20B5623A697D8A51544D5E81FBD84" : "apollo-ios-quickstart\/",
+    "11467B891B05E74285D0FDA7F262E859A9337C82" : "apollo-ios-quickstart\/apollo-ios\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ApolloQuickstart",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ApolloQuickstart.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/apollostack\/apollo-ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "11467B891B05E74285D0FDA7F262E859A9337C82"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/apollostack\/apollo-ios-quickstart.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FF5E57E11CB20B5623A697D8A51544D5E81FBD84"
+    }
+  ]
+}

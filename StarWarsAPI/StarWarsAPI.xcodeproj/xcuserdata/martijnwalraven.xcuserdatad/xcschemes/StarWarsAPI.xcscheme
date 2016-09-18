@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F1003CE1D885506009411A3"
-               BuildableName = "ApolloQuickstartAPI.framework"
-               BlueprintName = "ApolloQuickstartAPI"
-               ReferencedContainer = "container:ApolloQuickstart.xcodeproj">
+               BlueprintIdentifier = "9F167DC31D8EA2CC00919F36"
+               BuildableName = "StarWarsAPI.framework"
+               BlueprintName = "StarWarsAPI"
+               ReferencedContainer = "container:StarWarsAPI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F1003CE1D885506009411A3"
-            BuildableName = "ApolloQuickstartAPI.framework"
-            BlueprintName = "ApolloQuickstartAPI"
-            ReferencedContainer = "container:ApolloQuickstart.xcodeproj">
+            BlueprintIdentifier = "9F167DC31D8EA2CC00919F36"
+            BuildableName = "StarWarsAPI.framework"
+            BlueprintName = "StarWarsAPI"
+            ReferencedContainer = "container:StarWarsAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F1003CE1D885506009411A3"
-            BuildableName = "ApolloQuickstartAPI.framework"
-            BlueprintName = "ApolloQuickstartAPI"
-            ReferencedContainer = "container:ApolloQuickstart.xcodeproj">
+            BlueprintIdentifier = "9F167DC31D8EA2CC00919F36"
+            BuildableName = "StarWarsAPI.framework"
+            BlueprintName = "StarWarsAPI"
+            ReferencedContainer = "container:StarWarsAPI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

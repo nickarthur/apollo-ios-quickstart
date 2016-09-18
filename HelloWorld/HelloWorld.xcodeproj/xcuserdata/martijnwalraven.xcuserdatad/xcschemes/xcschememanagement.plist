@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ApolloQuickstartAPI.xcscheme</key>
+		<key>HelloWorld.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>2</integer>
@@ -12,27 +12,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>9F1003CE1D885506009411A3</key>
+		<key>9F167D8D1D8E84B300919F36</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F1003D61D885506009411A3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F1841911D884B520093FE83</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F1841A51D884B520093FE83</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9F1841B01D884B520093FE83</key>
+		<key>9F167DA11D8E84B300919F36</key>
 		<dict>
 			<key>primary</key>
 			<true/>

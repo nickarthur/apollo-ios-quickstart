@@ -1,0 +1,9 @@
+query HeroAndFriends($episode: Episode) {
+  hero(episode: $episode) {
+    name
+    appearsIn
+    friends {
+      name
+    }
+  }
+}
