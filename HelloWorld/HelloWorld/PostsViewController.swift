@@ -21,9 +21,6 @@
 import UIKit
 import Apollo
 
-// Change localhost to your machine's local IP address when running from a device
-let client = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
-
 class PostsViewController: UITableViewController {
   var posts: [AllPostsQuery.Data.Posts] = []
   
