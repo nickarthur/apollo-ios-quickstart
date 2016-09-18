@@ -8,6 +8,9 @@
       location = "group:StarWarsAPI/StarWarsAPI.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:MyAPI/MyAPI.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:apollo-ios/Apollo.xcodeproj">
    </FileRef>
 </Workspace>

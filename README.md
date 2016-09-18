@@ -45,7 +45,9 @@ Try commenting out (GraphQL uses `#` for comments) a post's `title` and rebuild 
 
 The Star Wars API playground runs against [an example GraphQL server](https://github.com/jahewson/graphql-starwars) (see installation instructions there) using the Star Wars data bundled with Facebook's reference implementation, [GraphQL.js](https://github.com/graphql/graphql-js).
 
-Open `StarWarsAPI.playground` to experiment with using typed query results. If you want to run on a device, change `localhost` to your machine's local IP address in the playground.
+Open `StarWarsAPI.playground` to experiment with using typed query results. Pass any of the generated query classes to `client.fetch()` to change which query gets executed.
+
+If you want to run on a device, change `localhost` to your machine's local IP address in the playground.
 
 > You'll have to build the `StarWarsAPI` framework before running the playground, and whenever you make changes to `.graphql` files.
 
@@ -53,12 +55,20 @@ You can use GraphiQL to construct your own queries against the Star Wars API and
 
 > You may want to use 'Edit / Paste and Preserve Formatting' to paste the query in Xcode however, because for some reason Xcode will remove indentation when using a normal paste.
 
-## Using your own schema
+## MyAPI playground – Using your own schema
 
-To download a GraphQL schema by sending an introspection query to a server:
+The MyAPI playground allows you to run queries against your own schema.
+
+You can download a GraphQL schema by sending an introspection query to the server:
 
 ```sh
-apollo-codegen download-schema http://localhost:8080/graphql --output MyAPI/schema.json
+apollo-codegen download-schema http://localhost:8080/graphql --output MyAPI/MyAPI/schema.json
 ```
 
-You can use the `header` option to add additional HTTP headers to the request. For example, to include an authentication token, use `--header "Authorization: Bearer <token>"`.
+If needed, you can use the `header` option to add additional HTTP headers to the request. For example, to include an authentication token, use `--header "Authorization: Bearer <token>"`:
+
+```sh
+apollo-codegen download-schema https://api.github.com/graphql --output MyAPI/MyAPI/schema.json --header "Authorization: Bearer <token>"
+```
+
+Add queries to `MyQueries.graphql` or add additional `.graphql` files and rebuild the target. Then pass one of the generated query classes to `client.fetch()` in `MyAPI.playground`.
