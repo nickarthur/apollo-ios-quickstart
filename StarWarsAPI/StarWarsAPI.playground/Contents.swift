@@ -4,6 +4,7 @@ import StarWarsAPI
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
+// Change localhost to your machine's local IP address when running from a device
 let client = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
 
 client.fetch(query: HeroAndFriendsQuery(episode: .jedi)) { (result, error) in
