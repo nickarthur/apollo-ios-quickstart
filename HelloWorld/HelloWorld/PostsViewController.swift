@@ -26,8 +26,6 @@ class PostsViewController: UITableViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    refreshControl?.addTarget(self, action: #selector(PostsViewController.refresh), for: .valueChanged)
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -43,11 +41,7 @@ class PostsViewController: UITableViewController {
   }
   
   func loadData() {
-    refreshControl?.beginRefreshing()
-    
     client.fetch(query: AllPostsQuery()) { (result, error) in
-      self.refreshControl?.endRefreshing()
-      
       if let error = error { NSLog("Error while fetching query: \(error.localizedDescription)");  return }
       guard let result = result else { NSLog("No query result");  return }
       
