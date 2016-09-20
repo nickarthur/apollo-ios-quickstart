@@ -36,7 +36,7 @@
 		9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroAndFriends.graphql; sourceTree = "<group>"; };
 		9F167DD51D8EA3D600919F36 /* HeroName.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroName.graphql; sourceTree = "<group>"; };
 		9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoHeroes.graphql; sourceTree = "<group>"; };
-		9F167DDB1D8EA41A00919F36 /* StarWarsAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StarWarsAPI.playground; sourceTree = "<group>"; };
+		9F5B8DE91D9101E600333E78 /* StarWarsAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StarWarsAPI.playground; sourceTree = SOURCE_ROOT; };
 		9FAACC081D8EBBD6007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ApolloQuickstart-azcunsnqjshvvtexxntekheriixm/Build/Products/Debug-iphonesimulator/Apollo.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,7 +55,6 @@
 		9F167DBA1D8EA2CC00919F36 = {
 			isa = PBXGroup;
 			children = (
-				9F167DDB1D8EA41A00919F36 /* StarWarsAPI.playground */,
 				9F167DC61D8EA2CC00919F36 /* StarWarsAPI */,
 				9F167DC51D8EA2CC00919F36 /* Products */,
 				9FAACC071D8EBBD6007F6B58 /* Frameworks */,
@@ -73,6 +72,7 @@
 		9F167DC61D8EA2CC00919F36 /* StarWarsAPI */ = {
 			isa = PBXGroup;
 			children = (
+				9F5B8DE91D9101E600333E78 /* StarWarsAPI.playground */,
 				9F167DD51D8EA3D600919F36 /* HeroName.graphql */,
 				9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */,
 				9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */,

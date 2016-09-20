@@ -22,7 +22,7 @@ import UIKit
 import Apollo
 
 class PostsViewController: UITableViewController {
-  var posts: [AllPostsQuery.Data.Posts] = []
+  var posts: [AllPostsQuery.Data.Post] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -80,7 +80,7 @@ class PostsViewController: UITableViewController {
 
 // We can extend the generated types to add convenience properties and methods
 
-extension AllPostsQuery.Data.Posts.Author {
+extension AllPostsQuery.Data.Post.Author {
   var fullName: String {
     return [firstName, lastName].flatMap { $0 }.joined(separator: " ")
   }

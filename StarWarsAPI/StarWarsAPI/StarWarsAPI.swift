@@ -43,7 +43,7 @@ public class HeroAndFriendsQuery: GraphQLQuery {
     public struct Hero: GraphQLMapConvertible {
       public let name: String
       public let appearsIn: [Episode?]
-      public let friends: [Friends?]?
+      public let friends: [Friend?]?
       
       public init(map: GraphQLMap) throws {
         name = try map.value(forKey: "name")
@@ -51,7 +51,7 @@ public class HeroAndFriendsQuery: GraphQLQuery {
         friends = try map.list(forKey: "friends")
       }
       
-      public struct Friends: GraphQLMapConvertible {
+      public struct Friend: GraphQLMapConvertible {
         public let name: String
         
         public init(map: GraphQLMap) throws {

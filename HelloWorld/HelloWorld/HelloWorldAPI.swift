@@ -20,13 +20,13 @@ public class AllPostsQuery: GraphQLQuery {
     "}"
   
   public struct Data: GraphQLMapConvertible {
-    public let posts: [Posts]
+    public let posts: [Post]
     
     public init(map: GraphQLMap) throws {
       posts = try map.list(forKey: "posts")
     }
     
-    public struct Posts: GraphQLMapConvertible {
+    public struct Post: GraphQLMapConvertible {
       public let id: Int
       public let title: String?
       public let votes: Int?
