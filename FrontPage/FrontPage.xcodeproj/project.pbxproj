@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F08F6691DA4071000DF631D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */; };
+		9F08F66B1DA413FC00DF631D /* PostTableViewCell.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */; };
 		9F167D921D8E84B300919F36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167D911D8E84B300919F36 /* AppDelegate.swift */; };
-		9F167D941D8E84B300919F36 /* PostsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167D931D8E84B300919F36 /* PostsViewController.swift */; };
+		9F167D941D8E84B300919F36 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167D931D8E84B300919F36 /* PostListViewController.swift */; };
 		9F167D971D8E84B300919F36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D951D8E84B300919F36 /* Main.storyboard */; };
 		9F167D991D8E84B300919F36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D981D8E84B300919F36 /* Assets.xcassets */; };
 		9F167D9C1D8E84B300919F36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D9A1D8E84B300919F36 /* LaunchScreen.storyboard */; };
-		9F167DB21D8E888600919F36 /* PostsViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DB11D8E888600919F36 /* PostsViewController.graphql */; };
-		9F167DB91D8E8A6100919F36 /* HelloWorldAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DB81D8E8A6100919F36 /* HelloWorldAPI.swift */; };
+		9F167DB21D8E888600919F36 /* PostListViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DB11D8E888600919F36 /* PostListViewController.graphql */; };
+		9F167DB91D8E8A6100919F36 /* FrontPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */; };
 		9FAACC041D8EBB2E007F6B58 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC031D8EBB2E007F6B58 /* Apollo.framework */; };
 		9FAACC051D8EBB2E007F6B58 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC031D8EBB2E007F6B58 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -46,15 +48,17 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9F167D8E1D8E84B300919F36 /* HelloWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelloWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostTableViewCell.graphql; sourceTree = "<group>"; };
+		9F167D8E1D8E84B300919F36 /* FrontPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F167D911D8E84B300919F36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9F167D931D8E84B300919F36 /* PostsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsViewController.swift; sourceTree = "<group>"; };
+		9F167D931D8E84B300919F36 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
 		9F167D961D8E84B300919F36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9F167D981D8E84B300919F36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9F167D9B1D8E84B300919F36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F167D9D1D8E84B300919F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F167DB11D8E888600919F36 /* PostsViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostsViewController.graphql; sourceTree = "<group>"; };
-		9F167DB81D8E8A6100919F36 /* HelloWorldAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelloWorldAPI.swift; sourceTree = "<group>"; };
+		9F167DB11D8E888600919F36 /* PostListViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostListViewController.graphql; sourceTree = "<group>"; };
+		9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageAPI.swift; sourceTree = "<group>"; };
 		9FAACC031D8EBB2E007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apollo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -73,7 +77,7 @@
 		9F167D851D8E84B300919F36 = {
 			isa = PBXGroup;
 			children = (
-				9F167D901D8E84B300919F36 /* HelloWorld */,
+				9F167D901D8E84B300919F36 /* FrontPage */,
 				9F167D8F1D8E84B300919F36 /* Products */,
 				9F167DB41D8E892F00919F36 /* Frameworks */,
 			);
@@ -82,24 +86,26 @@
 		9F167D8F1D8E84B300919F36 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9F167D8E1D8E84B300919F36 /* HelloWorld.app */,
+				9F167D8E1D8E84B300919F36 /* FrontPage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F167D901D8E84B300919F36 /* HelloWorld */ = {
+		9F167D901D8E84B300919F36 /* FrontPage */ = {
 			isa = PBXGroup;
 			children = (
 				9F167D911D8E84B300919F36 /* AppDelegate.swift */,
-				9F167D931D8E84B300919F36 /* PostsViewController.swift */,
-				9F167DB11D8E888600919F36 /* PostsViewController.graphql */,
-				9F167DB81D8E8A6100919F36 /* HelloWorldAPI.swift */,
+				9F167D931D8E84B300919F36 /* PostListViewController.swift */,
+				9F167DB11D8E888600919F36 /* PostListViewController.graphql */,
+				9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */,
+				9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */,
+				9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */,
 				9F167D951D8E84B300919F36 /* Main.storyboard */,
 				9F167D981D8E84B300919F36 /* Assets.xcassets */,
 				9F167D9A1D8E84B300919F36 /* LaunchScreen.storyboard */,
 				9F167D9D1D8E84B300919F36 /* Info.plist */,
 			);
-			path = HelloWorld;
+			path = FrontPage;
 			sourceTree = "<group>";
 		};
 		9F167DB41D8E892F00919F36 /* Frameworks */ = {
@@ -113,9 +119,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		9F167D8D1D8E84B300919F36 /* HelloWorld */ = {
+		9F167D8D1D8E84B300919F36 /* FrontPage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F167DAB1D8E84B300919F36 /* Build configuration list for PBXNativeTarget "HelloWorld" */;
+			buildConfigurationList = 9F167DAB1D8E84B300919F36 /* Build configuration list for PBXNativeTarget "FrontPage" */;
 			buildPhases = (
 				9F167DB31D8E88FE00919F36 /* Generate Apollo API Client */,
 				9F167D8A1D8E84B300919F36 /* Sources */,
@@ -128,9 +134,9 @@
 			);
 			dependencies = (
 			);
-			name = HelloWorld;
+			name = FrontPage;
 			productName = HelloWorld;
-			productReference = 9F167D8E1D8E84B300919F36 /* HelloWorld.app */;
+			productReference = 9F167D8E1D8E84B300919F36 /* FrontPage.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -150,7 +156,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9F167D891D8E84B300919F36 /* Build configuration list for PBXProject "HelloWorld" */;
+			buildConfigurationList = 9F167D891D8E84B300919F36 /* Build configuration list for PBXProject "FrontPage" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -163,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9F167D8D1D8E84B300919F36 /* HelloWorld */,
+				9F167D8D1D8E84B300919F36 /* FrontPage */,
 			);
 		};
 /* End PBXProject section */
@@ -174,7 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F167D9C1D8E84B300919F36 /* LaunchScreen.storyboard in Resources */,
-				9F167DB21D8E888600919F36 /* PostsViewController.graphql in Resources */,
+				9F08F66B1DA413FC00DF631D /* PostTableViewCell.graphql in Resources */,
+				9F167DB21D8E888600919F36 /* PostListViewController.graphql in Resources */,
 				9F167D991D8E84B300919F36 /* Assets.xcassets in Resources */,
 				9F167D971D8E84B300919F36 /* Main.storyboard in Resources */,
 			);
@@ -195,7 +202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "if [[ -s \"$HOME/.nvm/nvm.sh\" ]]; then\n. \"$HOME/.nvm/nvm.sh\"\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\napollo-codegen generate **/*.graphql --schema schema.json --output HelloWorldAPI.swift";
+			shellScript = "if [[ -s \"$HOME/.nvm/nvm.sh\" ]]; then\n. \"$HOME/.nvm/nvm.sh\"\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\napollo-codegen generate **/*.graphql --schema schema.json --output FrontPageAPI.swift";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -204,9 +211,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F167D941D8E84B300919F36 /* PostsViewController.swift in Sources */,
-				9F167DB91D8E8A6100919F36 /* HelloWorldAPI.swift in Sources */,
+				9F167D941D8E84B300919F36 /* PostListViewController.swift in Sources */,
+				9F167DB91D8E8A6100919F36 /* FrontPageAPI.swift in Sources */,
 				9F167D921D8E84B300919F36 /* AppDelegate.swift in Sources */,
+				9F08F6691DA4071000DF631D /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +338,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TL236FN6U;
-				INFOPLIST_FILE = HelloWorld/Info.plist;
+				INFOPLIST_FILE = FrontPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.FrontPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -343,9 +351,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5TL236FN6U;
-				INFOPLIST_FILE = HelloWorld/Info.plist;
+				INFOPLIST_FILE = FrontPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.HelloWorld;
+				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.FrontPage;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -354,7 +362,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9F167D891D8E84B300919F36 /* Build configuration list for PBXProject "HelloWorld" */ = {
+		9F167D891D8E84B300919F36 /* Build configuration list for PBXProject "FrontPage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F167DA91D8E84B300919F36 /* Debug */,
@@ -363,7 +371,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F167DAB1D8E84B300919F36 /* Build configuration list for PBXNativeTarget "HelloWorld" */ = {
+		9F167DAB1D8E84B300919F36 /* Build configuration list for PBXNativeTarget "FrontPage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F167DAC1D8E84B300919F36 /* Debug */,

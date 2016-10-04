@@ -21,7 +21,7 @@
 import UIKit
 import Apollo
 
-class PostsViewController: UITableViewController {
+class PostListViewController: UITableViewController {
   var posts: [AllPostsQuery.Data.Post] = []
   
   override func viewDidLoad() {
