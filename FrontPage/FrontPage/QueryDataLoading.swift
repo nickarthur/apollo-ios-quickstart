@@ -19,23 +19,35 @@
 // SOFTWARE.
 
 import UIKit
+import Apollo
 
-class PostTableViewCell: UITableViewCell {
-  @IBOutlet weak var titleLabel: UILabel!
-  @IBOutlet weak var bylineLabel: UILabel!
-  @IBOutlet weak var votesLabel: UILabel!
+protocol QueryDataLoading {
+  associatedtype Query: GraphQLQuery
   
-  func configure(with post: PostDetails) {
-    self.titleLabel?.text = post.title
-    self.bylineLabel?.text = "by \(post.author!.fullName)"
-    self.votesLabel?.text = "\(post.votes!) votes"
+  var query: Query { get }
+  
+  func dataDidLoad(data: Query.Data)
+}
+
+extension QueryDataLoading {
+  func loadData() {
+    client.fetch(query: query) { (result, error) in
+      if let error = error { NSLog("Error while fetching query: \(error.localizedDescription)");  return }
+      guard let result = result else { NSLog("No query result");  return }
+      
+      if let errors = result.errors {
+        NSLog("Errors in query result: \(errors)")
+      }
+      
+      guard let data = result.data else { NSLog("No query result data");  return }
+      
+      // Dispatch to the main thread for UI updates
+      DispatchQueue.main.async {
+        self.dataDidLoad(data: data)
+      }
+    }
   }
 }
 
-// We can extend the generated types to add convenience properties and methods
-
-extension PostDetails.Author {
-  var fullName: String {
-    return [firstName, lastName].flatMap { $0 }.joined(separator: " ")
-  }
+extension QueryDataLoading where Self: UIViewController {
 }

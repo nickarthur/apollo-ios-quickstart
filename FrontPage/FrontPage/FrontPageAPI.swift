@@ -4,12 +4,12 @@ import Apollo
 
 public final class AllPostsQuery: GraphQLQuery {
   public static let operationDefinition =
-    "query allPosts {" +
+    "query AllPosts {" +
     "  posts {" +
     "    ...PostDetails" +
     "  }" +
     "}"
-  public static let queryDocument = operationDefinition.appending(PostDetailsFragment.fragmentDefinition).appending(AuthorDetailsFragment.fragmentDefinition)
+  public static let queryDocument = operationDefinition.appending(PostDetails.fragmentDefinition)
 
   public struct Data: GraphQLMapConvertible {
     public let posts: [Post]
@@ -18,74 +18,55 @@ public final class AllPostsQuery: GraphQLQuery {
       posts = try map.list(forKey: "posts")
     }
 
-    public struct Post: GraphQLMapConvertible, PostDetails {
-      public let id: Int
-      public let title: String?
-      public let votes: Int?
-      public let author: Author?
+    public struct Post: GraphQLMapConvertible {
+      public let __typename = "Post"
+
+      public let fragments: Fragments
 
       public init(map: GraphQLMap) throws {
-        id = try map.value(forKey: "id")
-        title = try map.optionalValue(forKey: "title")
-        votes = try map.optionalValue(forKey: "votes")
-        author = try map.optionalValue(forKey: "author")
+        let postDetails = try PostDetails(map: map)
+        fragments = Fragments(postDetails: postDetails)
       }
 
-      public struct Author: GraphQLMapConvertible, AuthorDetails {
-        public let id: Int
-        public let firstName: String?
-        public let lastName: String?
-
-        public init(map: GraphQLMap) throws {
-          id = try map.value(forKey: "id")
-          firstName = try map.optionalValue(forKey: "firstName")
-          lastName = try map.optionalValue(forKey: "lastName")
-        }
+      public struct Fragments {
+        public let postDetails: PostDetails
       }
     }
   }
 }
 
-public final class PostDetailsFragment: GraphQLFragment {
+public struct PostDetails: GraphQLNamedFragment {
   public static let fragmentDefinition =
     "fragment PostDetails on Post {" +
-    "  id" +
     "  title" +
     "  votes" +
     "  author {" +
-    "    ...AuthorDetails" +
+    "    firstName" +
+    "    lastName" +
     "  }" +
     "}"
 
-  public typealias Data = PostDetails
-}
+  public static let possibleTypes = ["Post"]
 
-public protocol PostDetails {
-  var id: Int { get }
-  var title: String? { get }
-  var votes: Int? { get }
-  var author: PostDetails_Author? { get }
-}
+  public let __typename = "Post"
+  public let title: String?
+  public let votes: Int?
+  public let author: Author?
 
-public protocol PostDetails_Author {
-  var id: Int { get }
-  var firstName: String? { get }
-  var lastName: String? { get }
-}
+  public init(map: GraphQLMap) throws {
+    title = try map.optionalValue(forKey: "title")
+    votes = try map.optionalValue(forKey: "votes")
+    author = try map.optionalValue(forKey: "author")
+  }
 
-public final class AuthorDetailsFragment: GraphQLFragment {
-  public static let fragmentDefinition =
-    "fragment AuthorDetails on Author {" +
-    "  id" +
-    "  firstName" +
-    "  lastName" +
-    "}"
+  public struct Author: GraphQLMapConvertible {
+    public let __typename = "Author"
+    public let firstName: String?
+    public let lastName: String?
 
-  public typealias Data = AuthorDetails
-}
-
-public protocol AuthorDetails {
-  var id: Int { get }
-  var firstName: String? { get }
-  var lastName: String? { get }
+    public init(map: GraphQLMap) throws {
+      firstName = try map.optionalValue(forKey: "firstName")
+      lastName = try map.optionalValue(forKey: "lastName")
+    }
+  }
 }

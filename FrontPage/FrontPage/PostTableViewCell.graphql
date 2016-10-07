@@ -1,14 +1,9 @@
 fragment PostDetails on Post {
-  id
   title
   votes
   author {
-    ...AuthorDetails
+    firstName
+    lastName
   }
 }
 
-fragment AuthorDetails on Author {
-  id
-  firstName
-  lastName
-}

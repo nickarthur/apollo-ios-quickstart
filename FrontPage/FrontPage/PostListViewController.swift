@@ -21,11 +21,18 @@
 import UIKit
 import Apollo
 
-class PostListViewController: UITableViewController {
-  var posts: [AllPostsQuery.Data.Post] = []
+class PostListViewController: UITableViewController, QueryDataLoading {
+  typealias Query = AllPostsQuery
+  
+  let query = Query()
+  
+  var posts: [Query.Data.Post] = []
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 80
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -36,30 +43,9 @@ class PostListViewController: UITableViewController {
   
   // MARK: Data loading
   
-  func refresh() {
-    loadData()
-  }
-  
-  func loadData() {
-    client.fetch(query: AllPostsQuery()) { (result, error) in
-      if let error = error { NSLog("Error while fetching query: \(error.localizedDescription)");  return }
-      guard let result = result else { NSLog("No query result");  return }
-      
-      if let errors = result.errors {
-        NSLog("Errors in query result: \(errors)")
-      }
-      
-      guard let data = result.data else { NSLog("No query result data");  return }
-      
-      // Dispatch to the main thread for UI updates
-      DispatchQueue.main.async {
-        self.dataDidLoad(data: data)
-      }
-    }
-  }
-  
-  func dataDidLoad(data: AllPostsQuery.Data) {
+  func dataDidLoad(data: Query.Data) {
     posts = data.posts
+    
     tableView.reloadData()
   }
   
@@ -70,18 +56,13 @@ class PostListViewController: UITableViewController {
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? PostTableViewCell else {
+      fatalError("Could not dequeue PostTableViewCell")
+    }
+    
     let post = posts[indexPath.row]
-    cell.textLabel?.text = post.title
-    cell.detailTextLabel?.text = post.author?.fullName
+    cell.configure(with: post.fragments.postDetails)
+    
     return cell
-  }
-}
-
-// We can extend the generated types to add convenience properties and methods
-
-extension AllPostsQuery.Data.Post.Author {
-  var fullName: String {
-    return [firstName, lastName].flatMap { $0 }.joined(separator: " ")
   }
 }
