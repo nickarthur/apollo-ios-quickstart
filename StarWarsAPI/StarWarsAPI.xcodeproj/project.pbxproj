@@ -12,6 +12,7 @@
 		9F167DD71D8EA3D600919F36 /* HeroAndFriends.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */; };
 		9F167DD91D8EA3D600919F36 /* HeroName.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD51D8EA3D600919F36 /* HeroName.graphql */; };
 		9F167DDA1D8EA3D600919F36 /* TwoHeroes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */; };
+		9F4035B01DA835F000156D5D /* HeroDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F4035AF1DA835F000156D5D /* HeroDetails.graphql */; };
 		9FAACC091D8EBBD6007F6B58 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC081D8EBBD6007F6B58 /* Apollo.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 		9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroAndFriends.graphql; sourceTree = "<group>"; };
 		9F167DD51D8EA3D600919F36 /* HeroName.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroName.graphql; sourceTree = "<group>"; };
 		9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoHeroes.graphql; sourceTree = "<group>"; };
+		9F4035AF1DA835F000156D5D /* HeroDetails.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroDetails.graphql; sourceTree = "<group>"; };
 		9F5B8DE91D9101E600333E78 /* StarWarsAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StarWarsAPI.playground; sourceTree = SOURCE_ROOT; };
 		9FAACC081D8EBBD6007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ApolloQuickstart-azcunsnqjshvvtexxntekheriixm/Build/Products/Debug-iphonesimulator/Apollo.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				9F167DD51D8EA3D600919F36 /* HeroName.graphql */,
 				9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */,
 				9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */,
+				9F4035AF1DA835F000156D5D /* HeroDetails.graphql */,
 				9F167DD11D8EA3B900919F36 /* StarWarsAPI.swift */,
 				9F167DC71D8EA2CC00919F36 /* StarWarsAPI.h */,
 				9F167DC81D8EA2CC00919F36 /* Info.plist */,
@@ -164,6 +167,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F4035B01DA835F000156D5D /* HeroDetails.graphql in Resources */,
 				9F167DD91D8EA3D600919F36 /* HeroName.graphql in Resources */,
 				9F167DD71D8EA3D600919F36 /* HeroAndFriends.graphql in Resources */,
 				9F167DDA1D8EA3D600919F36 /* TwoHeroes.graphql in Resources */,
@@ -312,6 +316,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = StarWarsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.StarWarsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -333,6 +338,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = StarWarsAPI/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.apollostack.StarWarsAPI;
 				PRODUCT_NAME = "$(TARGET_NAME)";

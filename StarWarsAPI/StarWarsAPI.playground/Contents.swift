@@ -23,6 +23,12 @@ client.fetch(query: HeroAndFriendsQuery(episode: .jedi)) { (result, error) in
   
   data.hero?.appearsIn
   
+  data.hero?.__typename
+  
+  data.hero?.fragments.heroDetails.asDroid?.primaryFunction
+  
+  data.hero?.fragments.heroDetails.asHuman?.height
+  
   let friendsNames = data.hero?.friends?.flatMap { $0?.name }
   friendsNames
 }

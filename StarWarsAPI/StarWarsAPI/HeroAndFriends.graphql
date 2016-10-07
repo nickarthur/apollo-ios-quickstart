@@ -2,8 +2,10 @@ query HeroAndFriends($episode: Episode) {
   hero(episode: $episode) {
     name
     appearsIn
+    ...HeroDetails
     friends {
       name
+      ...HeroDetails
     }
   }
 }
