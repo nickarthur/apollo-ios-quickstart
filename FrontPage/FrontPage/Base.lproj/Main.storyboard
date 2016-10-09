@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" tableViewCell="R7q-H8-hJ4" id="n1f-fF-ddI">
-                                    <frame key="frameInset" width="375" height="79.5"/>
+                                    <frame key="frameInset" width="375" height="79"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Byline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tIF-Zy-a4e">
@@ -38,14 +38,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LF6-qT-HmW">
+                                            <state key="normal" title="Upvote"/>
+                                            <connections>
+                                                <action selector="upvote" destination="R7q-H8-hJ4" eventType="touchUpInside" id="6rk-1B-orl"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="tIF-Zy-a4e" secondAttribute="bottom" id="7C3-RY-60o"/>
                                         <constraint firstItem="lDJ-zd-S4j" firstAttribute="leading" secondItem="n1f-fF-ddI" secondAttribute="leadingMargin" id="Daf-h8-Qbp"/>
-                                        <constraint firstItem="tIF-Zy-a4e" firstAttribute="top" secondItem="lDJ-zd-S4j" secondAttribute="bottom" constant="8" id="JK3-og-LHe"/>
+                                        <constraint firstItem="tIF-Zy-a4e" firstAttribute="top" secondItem="lDJ-zd-S4j" secondAttribute="bottom" constant="3.5" id="JK3-og-LHe"/>
                                         <constraint firstItem="lDJ-zd-S4j" firstAttribute="top" secondItem="n1f-fF-ddI" secondAttribute="topMargin" id="ZJj-wa-SSb"/>
                                         <constraint firstItem="hPE-vT-f5c" firstAttribute="leading" secondItem="tIF-Zy-a4e" secondAttribute="trailing" constant="8" id="cBx-8r-rIu"/>
+                                        <constraint firstItem="LF6-qT-HmW" firstAttribute="centerY" secondItem="n1f-fF-ddI" secondAttribute="centerY" id="kmK-8E-kAO"/>
                                         <constraint firstItem="tIF-Zy-a4e" firstAttribute="leading" secondItem="lDJ-zd-S4j" secondAttribute="leading" id="m1N-xl-gje"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LF6-qT-HmW" secondAttribute="trailing" id="qWu-hp-ahm"/>
                                         <constraint firstItem="hPE-vT-f5c" firstAttribute="baseline" secondItem="tIF-Zy-a4e" secondAttribute="baseline" id="t84-T6-2FT"/>
                                     </constraints>
                                 </tableViewCellContentView>

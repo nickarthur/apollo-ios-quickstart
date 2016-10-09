@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9F08F6691DA4071000DF631D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */; };
 		9F08F66B1DA413FC00DF631D /* PostTableViewCell.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */; };
-		9F1632F21DA4798C00A29ED0 /* QueryDataLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1632F11DA4798C00A29ED0 /* QueryDataLoading.swift */; };
 		9F167D921D8E84B300919F36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167D911D8E84B300919F36 /* AppDelegate.swift */; };
 		9F167D941D8E84B300919F36 /* PostListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167D931D8E84B300919F36 /* PostListViewController.swift */; };
 		9F167D971D8E84B300919F36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D951D8E84B300919F36 /* Main.storyboard */; };
@@ -51,7 +50,6 @@
 /* Begin PBXFileReference section */
 		9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostTableViewCell.graphql; sourceTree = "<group>"; };
-		9F1632F11DA4798C00A29ED0 /* QueryDataLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryDataLoading.swift; sourceTree = "<group>"; };
 		9F167D8E1D8E84B300919F36 /* FrontPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FrontPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F167D911D8E84B300919F36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F167D931D8E84B300919F36 /* PostListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListViewController.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				9F167D911D8E84B300919F36 /* AppDelegate.swift */,
-				9F1632F11DA4798C00A29ED0 /* QueryDataLoading.swift */,
 				9F167D931D8E84B300919F36 /* PostListViewController.swift */,
 				9F167DB11D8E888600919F36 /* PostListViewController.graphql */,
 				9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */,
@@ -217,7 +214,6 @@
 				9F167D941D8E84B300919F36 /* PostListViewController.swift in Sources */,
 				9F167DB91D8E8A6100919F36 /* FrontPageAPI.swift in Sources */,
 				9F167D921D8E84B300919F36 /* AppDelegate.swift in Sources */,
-				9F1632F21DA4798C00A29ED0 /* QueryDataLoading.swift in Sources */,
 				9F08F6691DA4071000DF631D /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

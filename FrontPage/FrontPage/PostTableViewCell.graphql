@@ -1,4 +1,5 @@
 fragment PostDetails on Post {
+  id
   title
   votes
   author {
@@ -7,3 +8,8 @@ fragment PostDetails on Post {
   }
 }
 
+mutation UpvotePost($postId: Int!) {
+  upvotePost(postId: $postId) {
+    ...PostDetails
+  }
+}

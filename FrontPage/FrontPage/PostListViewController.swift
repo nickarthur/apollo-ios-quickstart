@@ -21,18 +21,20 @@
 import UIKit
 import Apollo
 
-class PostListViewController: UITableViewController, QueryDataLoading {
-  typealias Query = AllPostsQuery
+class PostListViewController: UITableViewController {
+  var posts: [AllPostsQuery.Data.Post]? {
+    didSet {
+      tableView.reloadData()
+    }
+  }
   
-  let query = Query()
-  
-  var posts: [Query.Data.Post] = []
+  // MARK: - View lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.estimatedRowHeight = 80
+    tableView.estimatedRowHeight = 64
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -41,18 +43,23 @@ class PostListViewController: UITableViewController, QueryDataLoading {
     loadData()
   }
   
-  // MARK: Data loading
+  // MARK: - Data loading
   
-  func dataDidLoad(data: Query.Data) {
-    posts = data.posts
-    
-    tableView.reloadData()
+  func loadData() {
+    apollo.fetch(query: AllPostsQuery()) { (result, error) in
+      if let error = error {
+        NSLog("Error while fetching query: \(error.localizedDescription)")
+        return
+      }
+      
+      self.posts = result?.data?.posts
+    }
   }
   
-  // MARK: UITableViewDataSource
+  // MARK: - UITableViewDataSource
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return posts.count
+    return posts?.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,7 +67,10 @@ class PostListViewController: UITableViewController, QueryDataLoading {
       fatalError("Could not dequeue PostTableViewCell")
     }
     
-    let post = posts[indexPath.row]
+    guard let post = posts?[indexPath.row] else {
+      fatalError("Could not find post at row \(indexPath.row)")
+    }
+    
     cell.configure(with: post.fragments.postDetails)
     
     return cell

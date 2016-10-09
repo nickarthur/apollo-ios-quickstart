@@ -22,7 +22,7 @@ import UIKit
 import Apollo
 
 // Change localhost to your machine's local IP address when running from a device
-let client = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
+let apollo = ApolloClient(url: URL(string: "http://localhost:8080/graphql")!)
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
