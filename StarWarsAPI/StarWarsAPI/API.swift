@@ -17,7 +17,9 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
     "  hero(episode: $episode) {" +
     "    __typename" +
     "    name" +
-    "    appearsIn" +
+    "    ... on Droid {" +
+    "      appearsIn" +
+    "    }" +
     "    ...HeroDetails" +
     "    friends {" +
     "      __typename" +
@@ -48,23 +50,68 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
     public struct Hero: GraphQLMapConvertible {
       public let __typename: String
       public let name: String
-      public let appearsIn: [Episode?]
       public let friends: [Friend?]?
 
       public let fragments: Fragments
 
+      public let asDroid: AsDroid?
+
       public init(map: GraphQLMap) throws {
         __typename = try map.value(forKey: "__typename")
         name = try map.value(forKey: "name")
-        appearsIn = try map.list(forKey: "appearsIn")
         friends = try map.optionalList(forKey: "friends")
 
         let heroDetails = try HeroDetails(map: map)
         fragments = Fragments(heroDetails: heroDetails)
+
+        asDroid = try AsDroid(map: map, ifTypeMatches: __typename)
       }
 
       public struct Fragments {
         public let heroDetails: HeroDetails
+      }
+
+      public struct AsDroid: GraphQLConditionalFragment {
+        public static let possibleTypes = ["Droid"]
+
+        public let __typename = "Droid"
+        public let name: String
+        public let appearsIn: [Episode?]
+        public let friends: [Friend?]?
+
+        public let fragments: Fragments
+
+        public init(map: GraphQLMap) throws {
+          name = try map.value(forKey: "name")
+          appearsIn = try map.list(forKey: "appearsIn")
+          friends = try map.optionalList(forKey: "friends")
+
+          let heroDetails = try HeroDetails(map: map)
+          fragments = Fragments(heroDetails: heroDetails)
+        }
+
+        public struct Fragments {
+          public let heroDetails: HeroDetails
+        }
+
+        public struct Friend: GraphQLMapConvertible {
+          public let __typename: String
+          public let name: String
+
+          public let fragments: Fragments
+
+          public init(map: GraphQLMap) throws {
+            __typename = try map.value(forKey: "__typename")
+            name = try map.value(forKey: "name")
+
+            let heroDetails = try HeroDetails(map: map)
+            fragments = Fragments(heroDetails: heroDetails)
+          }
+
+          public struct Fragments {
+            public let heroDetails: HeroDetails
+          }
+        }
       }
 
       public struct Friend: GraphQLMapConvertible {
@@ -166,7 +213,6 @@ public struct HeroDetails: GraphQLNamedFragment {
     "fragment HeroDetails on Character {" +
     "  __typename" +
     "  name" +
-    "  appearsIn" +
     "  ... on Droid {" +
     "    primaryFunction" +
     "  }" +
@@ -179,7 +225,6 @@ public struct HeroDetails: GraphQLNamedFragment {
 
   public let __typename: String
   public let name: String
-  public let appearsIn: [Episode?]
 
   public let asDroid: AsDroid?
   public let asHuman: AsHuman?
@@ -187,7 +232,6 @@ public struct HeroDetails: GraphQLNamedFragment {
   public init(map: GraphQLMap) throws {
     __typename = try map.value(forKey: "__typename")
     name = try map.value(forKey: "name")
-    appearsIn = try map.list(forKey: "appearsIn")
 
     asDroid = try AsDroid(map: map, ifTypeMatches: __typename)
     asHuman = try AsHuman(map: map, ifTypeMatches: __typename)
@@ -198,12 +242,10 @@ public struct HeroDetails: GraphQLNamedFragment {
 
     public let __typename = "Droid"
     public let name: String
-    public let appearsIn: [Episode?]
     public let primaryFunction: String?
 
     public init(map: GraphQLMap) throws {
       name = try map.value(forKey: "name")
-      appearsIn = try map.list(forKey: "appearsIn")
       primaryFunction = try map.optionalValue(forKey: "primaryFunction")
     }
   }
@@ -213,12 +255,10 @@ public struct HeroDetails: GraphQLNamedFragment {
 
     public let __typename = "Human"
     public let name: String
-    public let appearsIn: [Episode?]
     public let height: Float?
 
     public init(map: GraphQLMap) throws {
       name = try map.value(forKey: "name")
-      appearsIn = try map.list(forKey: "appearsIn")
       height = try map.optionalValue(forKey: "height")
     }
   }

@@ -19,16 +19,16 @@ client.fetch(query: HeroAndFriendsQuery(episode: .jedi)) { (result, error) in
   
   guard let data = result.data else { NSLog("No query result data");  return }
   
+  data.hero?.__typename
+  
   data.hero?.name
   
-  data.hero?.appearsIn
-  
-  data.hero?.__typename
+  data.hero?.asDroid?.appearsIn
   
   data.hero?.fragments.heroDetails.asDroid?.primaryFunction
   
   data.hero?.fragments.heroDetails.asHuman?.height
   
-  let friendsNames = data.hero?.friends?.flatMap { $0?.name }
+  let friendsNames = data.hero?.friends?.flatMap { $0?.fragments.heroDetails.asHuman?.height }
   friendsNames
 }

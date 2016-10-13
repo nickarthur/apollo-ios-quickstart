@@ -15,7 +15,7 @@
 		9F167D991D8E84B300919F36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D981D8E84B300919F36 /* Assets.xcassets */; };
 		9F167D9C1D8E84B300919F36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F167D9A1D8E84B300919F36 /* LaunchScreen.storyboard */; };
 		9F167DB21D8E888600919F36 /* PostListViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DB11D8E888600919F36 /* PostListViewController.graphql */; };
-		9F167DB91D8E8A6100919F36 /* FrontPageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */; };
+		9F167DB91D8E8A6100919F36 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DB81D8E8A6100919F36 /* API.swift */; };
 		9FAACC041D8EBB2E007F6B58 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC031D8EBB2E007F6B58 /* Apollo.framework */; };
 		9FAACC051D8EBB2E007F6B58 /* Apollo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC031D8EBB2E007F6B58 /* Apollo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -58,7 +58,7 @@
 		9F167D9B1D8E84B300919F36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F167D9D1D8E84B300919F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F167DB11D8E888600919F36 /* PostListViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostListViewController.graphql; sourceTree = "<group>"; };
-		9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontPageAPI.swift; sourceTree = "<group>"; };
+		9F167DB81D8E8A6100919F36 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9FAACC031D8EBB2E007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Apollo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +99,7 @@
 				9F167DB11D8E888600919F36 /* PostListViewController.graphql */,
 				9F08F6681DA4070F00DF631D /* PostTableViewCell.swift */,
 				9F08F66A1DA413FC00DF631D /* PostTableViewCell.graphql */,
-				9F167DB81D8E8A6100919F36 /* FrontPageAPI.swift */,
+				9F167DB81D8E8A6100919F36 /* API.swift */,
 				9F167D951D8E84B300919F36 /* Main.storyboard */,
 				9F167D981D8E84B300919F36 /* Assets.xcassets */,
 				9F167D9A1D8E84B300919F36 /* LaunchScreen.storyboard */,
@@ -123,7 +123,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F167DAB1D8E84B300919F36 /* Build configuration list for PBXNativeTarget "FrontPage" */;
 			buildPhases = (
-				9F167DB31D8E88FE00919F36 /* Generate Apollo API Client */,
+				9FE3F3941DADBBA40072078F /* Generate Apollo GraphQL API */,
 				9F167D8A1D8E84B300919F36 /* Sources */,
 				9F167D8B1D8E84B300919F36 /* Frameworks */,
 				9F167D8C1D8E84B300919F36 /* Resources */,
@@ -190,19 +190,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9F167DB31D8E88FE00919F36 /* Generate Apollo API Client */ = {
+		9FE3F3941DADBBA40072078F /* Generate Apollo GraphQL API */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate Apollo API Client";
+			name = "Generate Apollo GraphQL API";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "if [[ -s \"$HOME/.nvm/nvm.sh\" ]]; then\n. \"$HOME/.nvm/nvm.sh\"\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\napollo-codegen generate **/*.graphql --schema schema.json --output FrontPageAPI.swift";
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -212,7 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F167D941D8E84B300919F36 /* PostListViewController.swift in Sources */,
-				9F167DB91D8E8A6100919F36 /* FrontPageAPI.swift in Sources */,
+				9F167DB91D8E8A6100919F36 /* API.swift in Sources */,
 				9F167D921D8E84B300919F36 /* AppDelegate.swift in Sources */,
 				9F08F6691DA4071000DF631D /* PostTableViewCell.swift in Sources */,
 			);
@@ -266,6 +267,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${inherited}",
+					/Users/martijnwalraven/Development/Apollo,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -316,6 +321,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"${inherited}",
+					/Users/martijnwalraven/Development/Apollo,
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -55,7 +55,7 @@ class PostTableViewCell: UITableViewCell {
   }
 }
 
-// We can define helper methods that act on the generated data types
+// We can define helper methods that take the generated data types as arguments
 
 func byline(for post: PostDetails) -> String? {
   if let author = post.author {

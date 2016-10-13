@@ -10,7 +10,7 @@
 		9F9467F81D8ED9AE000BDDE8 /* MyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F9467F61D8ED9AE000BDDE8 /* MyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F9467FF1D8EDA4F000BDDE8 /* MyQueries.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F9467FE1D8EDA4F000BDDE8 /* MyQueries.graphql */; };
 		9F9468041D8EDA85000BDDE8 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9468031D8EDA85000BDDE8 /* Apollo.framework */; };
-		9F9468061D8EDC1A000BDDE8 /* MyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9468051D8EDC1A000BDDE8 /* MyAPI.swift */; };
+		9F9468061D8EDC1A000BDDE8 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9468051D8EDC1A000BDDE8 /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXBuildRule section */
@@ -32,7 +32,7 @@
 		9F9467F71D8ED9AE000BDDE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F9467FE1D8EDA4F000BDDE8 /* MyQueries.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MyQueries.graphql; sourceTree = "<group>"; };
 		9F9468031D8EDA85000BDDE8 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ApolloQuickstart-azcunsnqjshvvtexxntekheriixm/Build/Products/Debug-iphonesimulator/Apollo.framework"; sourceTree = "<group>"; };
-		9F9468051D8EDC1A000BDDE8 /* MyAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPI.swift; sourceTree = "<group>"; };
+		9F9468051D8EDC1A000BDDE8 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9F9468071D8EDC32000BDDE8 /* MyAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyAPI.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +69,7 @@
 		9F9467F51D8ED9AE000BDDE8 /* MyAPI */ = {
 			isa = PBXGroup;
 			children = (
-				9F9468051D8EDC1A000BDDE8 /* MyAPI.swift */,
+				9F9468051D8EDC1A000BDDE8 /* API.swift */,
 				9F9467F61D8ED9AE000BDDE8 /* MyAPI.h */,
 				9F9467F71D8ED9AE000BDDE8 /* Info.plist */,
 				9F9467FE1D8EDA4F000BDDE8 /* MyQueries.graphql */,
@@ -103,7 +103,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F9467FB1D8ED9AE000BDDE8 /* Build configuration list for PBXNativeTarget "MyAPI" */;
 			buildPhases = (
-				9F9468011D8EDA68000BDDE8 /* Generate Apollo API Client */,
+				9F9468011D8EDA68000BDDE8 /* Generate Apollo GraphQL API */,
 				9F9467EE1D8ED9AE000BDDE8 /* Sources */,
 				9F9467EF1D8ED9AE000BDDE8 /* Frameworks */,
 				9F9467F01D8ED9AE000BDDE8 /* Headers */,
@@ -165,19 +165,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9F9468011D8EDA68000BDDE8 /* Generate Apollo API Client */ = {
+		9F9468011D8EDA68000BDDE8 /* Generate Apollo GraphQL API */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate Apollo API Client";
+			name = "Generate Apollo GraphQL API";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "if [[ -s \"$HOME/.nvm/nvm.sh\" ]]; then\n. \"$HOME/.nvm/nvm.sh\"\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\napollo-codegen generate **/*.graphql --schema schema.json --output ${TARGET_NAME}.swift";
+			shellScript = "APOLLO_FRAMEWORK_PATH=$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -186,7 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F9468061D8EDC1A000BDDE8 /* MyAPI.swift in Sources */,
+				9F9468061D8EDC1A000BDDE8 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

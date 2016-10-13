@@ -8,11 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9F167DC91D8EA2CC00919F36 /* StarWarsAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F167DC71D8EA2CC00919F36 /* StarWarsAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9F167DD21D8EA3B900919F36 /* StarWarsAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DD11D8EA3B900919F36 /* StarWarsAPI.swift */; };
+		9F167DD21D8EA3B900919F36 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F167DD11D8EA3B900919F36 /* API.swift */; };
 		9F167DD71D8EA3D600919F36 /* HeroAndFriends.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */; };
 		9F167DD91D8EA3D600919F36 /* HeroName.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD51D8EA3D600919F36 /* HeroName.graphql */; };
 		9F167DDA1D8EA3D600919F36 /* TwoHeroes.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */; };
-		9F4035B01DA835F000156D5D /* HeroDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 9F4035AF1DA835F000156D5D /* HeroDetails.graphql */; };
 		9FAACC091D8EBBD6007F6B58 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FAACC081D8EBBD6007F6B58 /* Apollo.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,11 +32,10 @@
 		9F167DC41D8EA2CC00919F36 /* StarWarsAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StarWarsAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F167DC71D8EA2CC00919F36 /* StarWarsAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StarWarsAPI.h; sourceTree = "<group>"; };
 		9F167DC81D8EA2CC00919F36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9F167DD11D8EA3B900919F36 /* StarWarsAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsAPI.swift; sourceTree = "<group>"; };
+		9F167DD11D8EA3B900919F36 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroAndFriends.graphql; sourceTree = "<group>"; };
 		9F167DD51D8EA3D600919F36 /* HeroName.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroName.graphql; sourceTree = "<group>"; };
 		9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwoHeroes.graphql; sourceTree = "<group>"; };
-		9F4035AF1DA835F000156D5D /* HeroDetails.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = HeroDetails.graphql; sourceTree = "<group>"; };
 		9F5B8DE91D9101E600333E78 /* StarWarsAPI.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = StarWarsAPI.playground; sourceTree = SOURCE_ROOT; };
 		9FAACC081D8EBBD6007F6B58 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = "../../../../Library/Developer/Xcode/DerivedData/ApolloQuickstart-azcunsnqjshvvtexxntekheriixm/Build/Products/Debug-iphonesimulator/Apollo.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,8 +76,7 @@
 				9F167DD51D8EA3D600919F36 /* HeroName.graphql */,
 				9F167DD31D8EA3D600919F36 /* HeroAndFriends.graphql */,
 				9F167DD61D8EA3D600919F36 /* TwoHeroes.graphql */,
-				9F4035AF1DA835F000156D5D /* HeroDetails.graphql */,
-				9F167DD11D8EA3B900919F36 /* StarWarsAPI.swift */,
+				9F167DD11D8EA3B900919F36 /* API.swift */,
 				9F167DC71D8EA2CC00919F36 /* StarWarsAPI.h */,
 				9F167DC81D8EA2CC00919F36 /* Info.plist */,
 			);
@@ -112,7 +109,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9F167DCC1D8EA2CC00919F36 /* Build configuration list for PBXNativeTarget "StarWarsAPI" */;
 			buildPhases = (
-				9F167DCF1D8EA33E00919F36 /* Generate Apollo API Client */,
+				9F167DCF1D8EA33E00919F36 /* Generate Apollo GraphQL API */,
 				9F167DBF1D8EA2CC00919F36 /* Sources */,
 				9F167DC01D8EA2CC00919F36 /* Frameworks */,
 				9F167DC11D8EA2CC00919F36 /* Headers */,
@@ -167,7 +164,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F4035B01DA835F000156D5D /* HeroDetails.graphql in Resources */,
 				9F167DD91D8EA3D600919F36 /* HeroName.graphql in Resources */,
 				9F167DD71D8EA3D600919F36 /* HeroAndFriends.graphql in Resources */,
 				9F167DDA1D8EA3D600919F36 /* TwoHeroes.graphql in Resources */,
@@ -177,19 +173,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9F167DCF1D8EA33E00919F36 /* Generate Apollo API Client */ = {
+		9F167DCF1D8EA33E00919F36 /* Generate Apollo GraphQL API */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Generate Apollo API Client";
+			name = "Generate Apollo GraphQL API";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/zsh;
-			shellScript = "if [[ -s \"$HOME/.nvm/nvm.sh\" ]]; then\n. \"$HOME/.nvm/nvm.sh\"\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\napollo-codegen generate **/*.graphql --schema schema.json --output ${TARGET_NAME}.swift";
+			shellPath = /bin/sh;
+			shellScript = "APOLLO_FRAMEWORK_PATH=$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd ${SRCROOT}/${TARGET_NAME}\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-codegen.sh generate $(find . -name '*.graphql') --schema schema.json --output API.swift";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -198,7 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F167DD21D8EA3B900919F36 /* StarWarsAPI.swift in Sources */,
+				9F167DD21D8EA3B900919F36 /* API.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
