@@ -8,6 +8,6 @@
       location = "group:MyAPI/MyAPI.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:apollo-ios/Apollo.xcodeproj">
+      location = "group:Carthage/Checkouts/apollo-ios/Apollo.xcodeproj">
    </FileRef>
 </Workspace>
