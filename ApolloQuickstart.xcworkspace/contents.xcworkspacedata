@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:FrontPage/FrontPage.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:StarWarsAPI/StarWarsAPI.xcodeproj">
    </FileRef>
    <FileRef
