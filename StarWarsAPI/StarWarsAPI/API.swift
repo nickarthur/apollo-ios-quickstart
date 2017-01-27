@@ -40,14 +40,14 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
     return ["episode": episode]
   }
 
-  public struct Data: GraphQLMapConvertible {
+  public struct Data: GraphQLMappable {
     public let hero: Hero?
 
-    public init(map: GraphQLMap) throws {
-      hero = try map.optionalValue(forKey: "hero")
+    public init(reader: GraphQLResultReader) throws {
+      hero = try reader.optionalValue(for: Field(responseName: "hero", arguments: ["episode": reader.variables["episode"]]))
     }
 
-    public struct Hero: GraphQLMapConvertible {
+    public struct Hero: GraphQLMappable {
       public let __typename: String
       public let name: String
       public let friends: [Friend?]?
@@ -56,15 +56,15 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
 
       public let asDroid: AsDroid?
 
-      public init(map: GraphQLMap) throws {
-        __typename = try map.value(forKey: "__typename")
-        name = try map.value(forKey: "name")
-        friends = try map.optionalList(forKey: "friends")
+      public init(reader: GraphQLResultReader) throws {
+        __typename = try reader.value(for: Field(responseName: "__typename"))
+        name = try reader.value(for: Field(responseName: "name"))
+        friends = try reader.optionalList(for: Field(responseName: "friends"))
 
-        let heroDetails = try HeroDetails(map: map)
+        let heroDetails = try HeroDetails(reader: reader)
         fragments = Fragments(heroDetails: heroDetails)
 
-        asDroid = try AsDroid(map: map, ifTypeMatches: __typename)
+        asDroid = try AsDroid(reader: reader, ifTypeMatches: __typename)
       }
 
       public struct Fragments {
@@ -81,12 +81,12 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
 
         public let fragments: Fragments
 
-        public init(map: GraphQLMap) throws {
-          name = try map.value(forKey: "name")
-          appearsIn = try map.list(forKey: "appearsIn")
-          friends = try map.optionalList(forKey: "friends")
+        public init(reader: GraphQLResultReader) throws {
+          name = try reader.value(for: Field(responseName: "name"))
+          appearsIn = try reader.list(for: Field(responseName: "appearsIn"))
+          friends = try reader.optionalList(for: Field(responseName: "friends"))
 
-          let heroDetails = try HeroDetails(map: map)
+          let heroDetails = try HeroDetails(reader: reader)
           fragments = Fragments(heroDetails: heroDetails)
         }
 
@@ -94,17 +94,17 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
           public let heroDetails: HeroDetails
         }
 
-        public struct Friend: GraphQLMapConvertible {
+        public struct Friend: GraphQLMappable {
           public let __typename: String
           public let name: String
 
           public let fragments: Fragments
 
-          public init(map: GraphQLMap) throws {
-            __typename = try map.value(forKey: "__typename")
-            name = try map.value(forKey: "name")
+          public init(reader: GraphQLResultReader) throws {
+            __typename = try reader.value(for: Field(responseName: "__typename"))
+            name = try reader.value(for: Field(responseName: "name"))
 
-            let heroDetails = try HeroDetails(map: map)
+            let heroDetails = try HeroDetails(reader: reader)
             fragments = Fragments(heroDetails: heroDetails)
           }
 
@@ -114,17 +114,17 @@ public final class HeroAndFriendsQuery: GraphQLQuery {
         }
       }
 
-      public struct Friend: GraphQLMapConvertible {
+      public struct Friend: GraphQLMappable {
         public let __typename: String
         public let name: String
 
         public let fragments: Fragments
 
-        public init(map: GraphQLMap) throws {
-          __typename = try map.value(forKey: "__typename")
-          name = try map.value(forKey: "name")
+        public init(reader: GraphQLResultReader) throws {
+          __typename = try reader.value(for: Field(responseName: "__typename"))
+          name = try reader.value(for: Field(responseName: "name"))
 
-          let heroDetails = try HeroDetails(map: map)
+          let heroDetails = try HeroDetails(reader: reader)
           fragments = Fragments(heroDetails: heroDetails)
         }
 
@@ -144,21 +144,23 @@ public final class HeroNameQuery: GraphQLQuery {
     "    name" +
     "  }" +
     "}"
+  public init() {
+  }
 
-  public struct Data: GraphQLMapConvertible {
+  public struct Data: GraphQLMappable {
     public let hero: Hero?
 
-    public init(map: GraphQLMap) throws {
-      hero = try map.optionalValue(forKey: "hero")
+    public init(reader: GraphQLResultReader) throws {
+      hero = try reader.optionalValue(for: Field(responseName: "hero"))
     }
 
-    public struct Hero: GraphQLMapConvertible {
+    public struct Hero: GraphQLMappable {
       public let __typename: String
       public let name: String
 
-      public init(map: GraphQLMap) throws {
-        __typename = try map.value(forKey: "__typename")
-        name = try map.value(forKey: "name")
+      public init(reader: GraphQLResultReader) throws {
+        __typename = try reader.value(for: Field(responseName: "__typename"))
+        name = try reader.value(for: Field(responseName: "name"))
       }
     }
   }
@@ -176,33 +178,35 @@ public final class TwoHeroesQuery: GraphQLQuery {
     "    name" +
     "  }" +
     "}"
+  public init() {
+  }
 
-  public struct Data: GraphQLMapConvertible {
+  public struct Data: GraphQLMappable {
     public let r2: R2?
     public let luke: Luke?
 
-    public init(map: GraphQLMap) throws {
-      r2 = try map.optionalValue(forKey: "r2")
-      luke = try map.optionalValue(forKey: "luke")
+    public init(reader: GraphQLResultReader) throws {
+      r2 = try reader.optionalValue(for: Field(responseName: "r2", fieldName: "hero"))
+      luke = try reader.optionalValue(for: Field(responseName: "luke", fieldName: "hero", arguments: ["episode": "EMPIRE"]))
     }
 
-    public struct R2: GraphQLMapConvertible {
+    public struct R2: GraphQLMappable {
       public let __typename: String
       public let name: String
 
-      public init(map: GraphQLMap) throws {
-        __typename = try map.value(forKey: "__typename")
-        name = try map.value(forKey: "name")
+      public init(reader: GraphQLResultReader) throws {
+        __typename = try reader.value(for: Field(responseName: "__typename"))
+        name = try reader.value(for: Field(responseName: "name"))
       }
     }
 
-    public struct Luke: GraphQLMapConvertible {
+    public struct Luke: GraphQLMappable {
       public let __typename: String
       public let name: String
 
-      public init(map: GraphQLMap) throws {
-        __typename = try map.value(forKey: "__typename")
-        name = try map.value(forKey: "name")
+      public init(reader: GraphQLResultReader) throws {
+        __typename = try reader.value(for: Field(responseName: "__typename"))
+        name = try reader.value(for: Field(responseName: "name"))
       }
     }
   }
@@ -229,12 +233,12 @@ public struct HeroDetails: GraphQLNamedFragment {
   public let asDroid: AsDroid?
   public let asHuman: AsHuman?
 
-  public init(map: GraphQLMap) throws {
-    __typename = try map.value(forKey: "__typename")
-    name = try map.value(forKey: "name")
+  public init(reader: GraphQLResultReader) throws {
+    __typename = try reader.value(for: Field(responseName: "__typename"))
+    name = try reader.value(for: Field(responseName: "name"))
 
-    asDroid = try AsDroid(map: map, ifTypeMatches: __typename)
-    asHuman = try AsHuman(map: map, ifTypeMatches: __typename)
+    asDroid = try AsDroid(reader: reader, ifTypeMatches: __typename)
+    asHuman = try AsHuman(reader: reader, ifTypeMatches: __typename)
   }
 
   public struct AsDroid: GraphQLConditionalFragment {
@@ -244,9 +248,9 @@ public struct HeroDetails: GraphQLNamedFragment {
     public let name: String
     public let primaryFunction: String?
 
-    public init(map: GraphQLMap) throws {
-      name = try map.value(forKey: "name")
-      primaryFunction = try map.optionalValue(forKey: "primaryFunction")
+    public init(reader: GraphQLResultReader) throws {
+      name = try reader.value(for: Field(responseName: "name"))
+      primaryFunction = try reader.optionalValue(for: Field(responseName: "primaryFunction"))
     }
   }
 
@@ -255,11 +259,11 @@ public struct HeroDetails: GraphQLNamedFragment {
 
     public let __typename = "Human"
     public let name: String
-    public let height: Float?
+    public let height: Double?
 
-    public init(map: GraphQLMap) throws {
-      name = try map.value(forKey: "name")
-      height = try map.optionalValue(forKey: "height")
+    public init(reader: GraphQLResultReader) throws {
+      name = try reader.value(for: Field(responseName: "name"))
+      height = try reader.optionalValue(for: Field(responseName: "height"))
     }
   }
 }
