@@ -30,7 +30,7 @@ If you want syntax highlighting for your .graphql files in Xcode, you can instal
 
 ## Star Wars API playground
 
-The Star Wars API playground runs against [an example GraphQL server](https://github.com/jahewson/graphql-starwars) (see installation instructions there) using the Star Wars data bundled with Facebook's reference implementation, [GraphQL.js](https://github.com/graphql/graphql-js).
+The Star Wars API playground runs against [an example GraphQL server](https://github.com/apollographql/starwars-server) (see installation instructions there) using the Star Wars data bundled with Facebook's reference implementation, [GraphQL.js](https://github.com/graphql/graphql-js).
 
 Open `StarWarsAPI.playground` to experiment with using typed query results. Pass any of the generated query classes to `client.fetch()` to change which query gets executed.
 
